@@ -4,73 +4,57 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
 		<title>UI Development Projects</title>
-
-		<style>
-			* {
-				box-sizing: border-box;
-				margin: 0;
-			}
-
-			body {
-				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-					Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-				font-size: 1rem;
-				font-weight: 400;
-				background-image: linear-gradient(to right, rgb(193, 254, 246), rgb(83, 208, 230));
-			}
-
-			.container {
-				max-width: 60em;
-				width: 90%;
-				margin: 2em auto;
-			}
-
-			a {
-				font-style: italic;
-			}
-
-			h1 {
-				font-size: 3rem;
-				line-height: 1;
-				margin-bottom: 1em;
-				background: #000;
-				color: #fff;
-				width: max-content;
-				padding: 0.25em;
-			}
-		</style>
 	</head>
 	<body>
-		<div class="container">
-			<h1>UI Development Projects</h1>
-			<ol>
-				<!-- Inject HTML -->
-			</ol>
-		</div>
+		<header>
+			<div class="container">
+				<h1>
+					UI Development Projects
+					<a href="https://vaibhavsompura.netlify.app/" target="_blank">by - Vaibhav Sompura</a>
+				</h1>
+			</div>
+		</header>
+		<main>
+			<div class="container">
+				<div class="grid"></div>
+			</div>
+		</main>
+		<footer>
+			<p>site under construction 🚜.</p>
+		</footer>
 	</body>
 	<!-- JS -->
 	<script>
-		const parentEl = document.querySelector("ol");
-
-		const projectsData = [
+		const data = [
 			{
 				name: "Day 01 - XAE Landing Page",
+				thumbnail: "day01.png",
+				location: "Day 01",
 			},
+
 			{
 				name: "Day 02 - UNX Landing Page",
+				thumbnail: "day02.png",
+				location: "Day 02",
 			},
 		];
 
-		function generateHTML(data, n) {
-			return `<li><a href='./Day 0${n}/index.html'>${data.name}</a></li>`;
+		function generateHTML(data) {
+			return `<a href="./${data.location}/index.html" class="grid-item">
+				<img src="./Assets/Images/${data.thumbnail}" alt="" />
+				<h2>${data.name}</h2>
+			</a>`;
 		}
 
 		let HTML = "";
-		for (const i of projectsData) {
-			HTML += generateHTML(i, projectsData.length);
+		for (const i of data) {
+			HTML += generateHTML(i);
 		}
 
-		parentEl.innerHTML = HTML;
+		console.log(HTML);
+		const grid = document.querySelector(".grid");
+		grid.innerHTML = HTML;
 	</script>
 </html>
