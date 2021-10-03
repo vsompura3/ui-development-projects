@@ -30,10 +30,12 @@ a {
 header {
 	background: #000;
 	color: #fff;
+	padding: 2em 0;
 }
 
 header h1 {
-	font-size: 4rem;
+	font-size: 2rem;
+	line-height: 1.2;
 }
 
 header a {
@@ -53,13 +55,14 @@ main {
 }
 
 .grid-item {
-	border-radius: 6px;
 	overflow: hidden;
+	border-radius: 6px;
 	background: #fff;
 	color: inherit;
 	box-shadow: none;
 	transition: all 0.3s;
 	text-decoration: none;
+	position: relative;
 }
 
 .grid-item:hover {
@@ -73,4 +76,15 @@ main {
 
 footer {
 	text-align: center;
+}
+
+@media screen and (min-width: 40em) {
+	header {
+		text-align: center;
+	}
+
+	header h1 {
+		font-size: 4rem;
+		line-height: 1;
+	}
 }
