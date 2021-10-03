@@ -40,10 +40,32 @@
 		<div class="container">
 			<h1>UI Development Projects</h1>
 			<ol>
-				<li>
-					<a href="./Day 01/index.html">Day 01 - Xae Landing Page</a>
-				</li>
+				<!-- Inject HTML -->
 			</ol>
 		</div>
 	</body>
+	<!-- JS -->
+	<script>
+		const parentEl = document.querySelector("ol");
+
+		const projectsData = [
+			{
+				name: "Day 01 - XAE Landing Page",
+			},
+			{
+				name: "Day 02 - UNX Landing Page",
+			},
+		];
+
+		function generateHTML(data, n) {
+			return `<li><a href='./Day 0${n}/index.html'>${data.name}</a></li>`;
+		}
+
+		let HTML = "";
+		for (const i of projectsData) {
+			HTML += generateHTML(i, projectsData.length);
+		}
+
+		parentEl.innerHTML = HTML;
+	</script>
 </html>
