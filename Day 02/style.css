@@ -1,32 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
 :root {
 	/* Fonts */
 	--ff-base: "Inter", -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
 		"Cantarell", "Open Sans", "Helvetica Neue", sans-serif;
+	--ff-other: "Poppins", Arial, Helvetica, sans-serif;
 	--fw-500: 500;
 	--fw-600: 600;
 	--fw-700: 700;
 
 	--fs-300: 0.796875rem;
-	--fs-400: 1rem;
-	--fs-500: 2rem;
+	--fs-400: 1.125rem;
+	--fs-500: 2rem; /* Logo */
 	--fs-600: 2.5rem;
 
-	--spacer: 1em;
-
-	--clr-accent: hsla(248, 97%, 43%, 1);
-
-	--clr-primary-100:hsla(205, 100%, 82%, 1);
-	--clr-primary-200:hsla(223, 94%, 72%, 1);
-
+	--spacer: 1.5em;
 }
 
-@media (min-width: 40.5em) {
+@media screen and (min-width: 40.5em) {
 	:root {
 		--fs-300: 1.125rem;
-		--fs-500: 2.25rem
+		--fs-500: 2.25rem;
 		--fs-600: 4rem;
+
+		--spacer: 2em;
 	}
 }
 
@@ -64,7 +61,6 @@ img {
 ul[class],
 ol[class] {
 	list-style: none;
-	padding: 0;
 	margin: 0;
 }
 
@@ -72,7 +68,6 @@ a:link,
 a:visited {
 	display: inline-block;
 	text-decoration: none;
-	color: inherit;
 }
 
 input,
@@ -83,14 +78,15 @@ textarea {
 }
 
 /* Base Styles */
+
 body {
 	font-family: var(--ff-base);
-	font-size: 1rem;
+	font-size: var(--fs-300);
 	font-weight: var(--fw-500);
 	line-height: 1.5;
-	/* background: hsla(0, 0%, 8%, 1);
-	background: hsla(234, 66%, 53%, 1); */
-
+	text-align: center;
+	color: #fff;
+	background: hsla(0, 0%, 8%, 1);
 }
 
 h1,
@@ -100,28 +96,173 @@ h4 {
 	line-height: 1;
 }
 
-.navbar{
+.container {
+	max-width: 75em;
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+}
+
+h1 {
+	font-size: var(--fs-600);
+	font-weight: var(--fw-700);
+	line-height: 1.1;
+}
+
+p {
+	font-size: var(--fs-300);
+	color: hsla(0, 0%, 69%, 1);
+}
+
+.navbar {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1em ;
-
+	flex-wrap: wrap;
+	padding: 2em 0;
+	position: relative;
+	margin-bottom: 4rem;
 }
 
-.navbar-list{
+.logo a {
+	font-size: var(--fs-500);
+	font-weight: var(--fw-700);
+	color: hsla(0, 0%, 100%, 1);
+}
+
+.hamburger {
+	cursor: pointer;
+}
+
+nav {
+	flex-basis: 100%;
+	font-size: var(--fs-400);
+	background: hsla(234, 66%, 53%, 1);
+	border-radius: 5px;
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	transform: translateY(-500%);
+	transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+nav.open {
+	transform: translateY(0);
+}
+
+.navbar-list {
 	display: flex;
-	gap: 1em;
+	flex-direction: column;
+	padding: 1em 1em 0;
 }
 
-h1{
-	font-size: var(--fs-600);
+.navbar-list li {
+	margin: 0.25em 0;
 }
 
-h1 span{
-	background: linear-gradient(270deg, var(--clr-primary-100) 7.6%, var(--clr-primary-200) 94.15%);
-	-moz-background-clip: text;
+.navbar-list a {
+	color: hsla(0, 0%, 100%, 1);
+}
+
+.navbar-list a:hover,
+.navbar-list a:focus {
+	color: hsla(0, 0%, 69%, 1);
+}
+
+.cta {
+	padding: 1em;
+}
+
+.cta button {
+	background: hsla(0, 0%, 14%, 1);
+	color: hsla(0, 0%, 100%, 1);
+	border: none;
+	border-radius: 5px;
+	padding: 0.5em 1em;
+	cursor: pointer;
+}
+
+.cta button:hover {
+	color: hsla(0, 0%, 69%, 1);
+}
+
+.hero {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 3em;
+}
+
+.hero-content > * + * {
+	margin-top: var(--spacer);
+}
+
+.hero-content h1 {
+	color: hsla(0, 0%, 100%, 1);
+}
+
+.hero-content span {
+	display: block;
+	background: linear-gradient(270deg, #a5d9ff 7.6%, #7399fb 94.15%);
 	-webkit-background-clip: text;
+	-moz-background-clip: text;
 	background-clip: text;
 	color: transparent;
+}
 
+.hero-content p {
+	max-width: 40em;
+	margin-inline: auto;
+}
+
+.hero-content a {
+	color: hsla(0, 0%, 100%, 1);
+	background: hsla(248, 97%, 43%, 1);
+	padding: 0.75em 2em;
+	border-radius: 5px;
+}
+
+.hero-image {
+	display: flex;
+	justify-content: center;
+}
+
+.bg {
+	position: absolute;
+	background: hsla(234, 66%, 53%, 1);
+	border-radius: 50%;
+	filter: blur(15rem);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 20rem;
+	height: 20rem;
+	z-index: -2;
+}
+
+@media screen and (min-width: 50em) {
+	.hamburger {
+		display: none;
+	}
+
+	nav {
+		flex-basis: 68%;
+		position: static;
+		transform: translateY(0);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: transparent;
+	}
+
+	.navbar-list {
+		flex-direction: row;
+		padding: 0;
+		gap: 3em;
+	}
+
+	.bg {
+		width: 30rem;
+		height: 30rem;
+		transform: translate(-100%, -50%);
+	}
 }
