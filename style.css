@@ -48,11 +48,10 @@ main {
 }
 
 .grid {
-	/* display: grid;
+	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	justify-content: space-between;
-	gap: 2em; */
-	display: flex;
+	gap: 3em;
 }
 
 .grid-item {
@@ -72,7 +71,7 @@ main {
 
 .grid-item h2 {
 	line-height: 1;
-	padding: 0.5em;
+	padding: 0.75em 0.5em;
 }
 
 footer {
@@ -87,5 +86,9 @@ footer {
 	header h1 {
 		font-size: 4rem;
 		line-height: 1;
+	}
+
+	.grid {
+		gap: 2em;
 	}
 }
