@@ -48,10 +48,10 @@ main {
 }
 
 .grid {
-	display: grid;
+	/* display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	justify-content: space-between;
-	gap: 2em;
+	gap: 2em; */
 }
 
 .grid-item {

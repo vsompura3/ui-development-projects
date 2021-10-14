@@ -12,6 +12,34 @@ const data = [
     thumbnail: "day02.png",
     location: "Day 02",
   },
+
+  {
+    id:3,
+    name: "Day 03 - SHPX Landing Page",
+    thumbnail: "day03.png",
+    location: "Day 03",
+  },
+
+  // {
+  //   id:4,
+  //   name: "Day 04 - UNX Landing Page",
+  //   thumbnail: "day04.png",
+  //   location: "Day 04",
+  // },
+
+  // {
+  //   id:5,
+  //   name: "Day 05 - UNX Landing Page",
+  //   thumbnail: "day05.png",
+  //   location: "Day 05",
+  // },
+
+  // {
+  //   id:6,
+  //   name: "Day 06 - UNX Landing Page",
+  //   thumbnail: "day06.png",
+  //   location: "Day 06",
+  // },
 ];
 
 function generateHTML(data) {
