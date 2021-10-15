@@ -94,10 +94,16 @@ select {
 body {
 	font-family: var(--ff-body);
 	font-weight: 400;
-	font-size: var(--fs-300, 1rem);
+	font-size: 0.875rem;
 	background-color: hsla(0, 0%, 100%, 1);
 	color: hsla(0, 0%, 29%, 1);
 	position: relative;
+}
+
+@media screen and (min-width: 40em) {
+	body {
+		font-size: 1.5rem;
+	}
 }
 
 a:link,
@@ -133,7 +139,7 @@ ul[role="list"] a:hover::after {
 
 /* Mobile-Nav */
 .mobile-nav {
-	position: absolute;
+	position: fixed;
 	inset: 0;
 	z-index: 99;
 	background: #000;
@@ -263,4 +269,10 @@ ul[role="list"] a:hover::after {
 		flex: 4;
 		justify-content: space-between;
 	}
+
+	.navbar-list {
+		gap: 3em;
+	}
 }
+
+/* Hero */
