@@ -8,37 +8,54 @@
 		<title>Day 03 - SHPX Landing Page</title>
 	</head>
 	<body>
+		<!-- Mobile Menu -->
+		<nav class="mobile-nav">
+			<div class="mobile-nav-head">
+				<a href="/" class="logo">SPHX</a>
+				<img src="https://img.icons8.com/ios-glyphs/30/000000/multiply.png" class="close-menu" />
+			</div>
+			<div class="mobile-nav-body">
+				<ul role="list" class="mobile-nav-list">
+					<li><a href="/">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Products</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+				<div class="navbar-actions">
+					<button type="button">
+						<img src="./Assets/icon-search.svg" alt="icon-search" />
+					</button>
+					<button type="button">
+						<img src="./Assets/icon-cart.svg" alt="icon-cart" />
+					</button>
+				</div>
+			</div>
+		</nav>
 		<!-- Header -->
 		<header class="header">
-			<div class="header__container container">
-				<div class="header__logo logo">
+			<div class="header-container">
+				<div class="header-logo logo">
 					<a href="/">SHPX</a>
 				</div>
+				<!-- Navbar -->
 				<nav class="navbar">
-					<ul class="navbar__list">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Pricing</a></li>
+					<ul role="list" class="navbar-list">
+						<li><a href="/">Home</a></li>
+						<li><a href="#">About</a></li>
 						<li><a href="#">Products</a></li>
 						<li><a href="#">Contact</a></li>
 					</ul>
-					<div class="navbar__action">
-						<button type="button" aria-label="search button">
-							<img src="./Assets/icon-search.svg" alt="search" />
+					<div class="navbar-actions">
+						<button type="button">
+							<img src="./Assets/icon-search.svg" alt="icon-search" />
 						</button>
-						<button type="button" aria-label="shopping cart">
-							<img src="./Assets/icon-cart.svg" alt="cart" />
+						<button type="button">
+							<img src="./Assets/icon-cart.svg" alt="icon-cart" />
 						</button>
 					</div>
 				</nav>
-				<div class="header__hamburger" aria-label="menu-toggle">
-					<img src="./Assets/icon-hamburger.svg" alt="menu" />
-				</div>
-			</div>
-			<div class="header__hero hero">
-				<img src="./Assets/hero.png" alt="" />
-				<div class="hero__content flow-content">
-					<h1>Modern Interior<br />for your<br />Dream House</h1>
-					<p>We custom make design to suits your needs.</p>
+				<div class="header-hamburger">
+					<img src="./Assets/icon-hamburger.svg" alt="menu" aria-label="menu-toggle" />
 				</div>
 			</div>
 		</header>

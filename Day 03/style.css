@@ -97,166 +97,170 @@ body {
 	font-size: var(--fs-300, 1rem);
 	background-color: hsla(0, 0%, 100%, 1);
 	color: hsla(0, 0%, 29%, 1);
+	position: relative;
 }
 
 a:link,
 a:visited {
-	text-decoration: none;
 	display: inline-block;
+	text-decoration: none;
 	color: inherit;
 }
 
-/* Utilities */
-.flow-content > * + * {
-	--spacer: 1rem;
-	margin-top: var(--spacer);
+ul[role="list"] a {
+	position: relative;
 }
 
-.container {
+ul[role="list"] a::after {
+	content: "";
+	position: absolute;
+	height: 3px;
+	border-radius: 10px;
+	width: 0;
+	left: 0;
+	bottom: 0;
+	transition: all 0.3s;
+	background: #fff;
+}
+
+ul[role="list"].navbar-list a::after {
+	background: hsla(0, 0%, 29%, 1);
+}
+
+ul[role="list"] a:hover::after {
+	width: 100%;
+}
+
+/* Mobile-Nav */
+.mobile-nav {
+	position: absolute;
+	inset: 0;
+	z-index: 99;
+	background: #000;
+	color: #fff;
+	transform: translateX(100%) scale(0.8);
+	transition: all 0.3s;
+}
+
+.mobile-nav.open {
+	transform: translateX(0) scale(1);
+}
+
+.mobile-nav-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	width: 90%;
 	margin: 0 auto;
+	padding: 1em 0;
 }
 
-/* Typography */
-.logo {
-	font-family: var(--ff-accent);
-	font-weight: 400;
-	font-size: 2.25rem;
+.mobile-nav-head img {
+	background: #fff;
+	cursor: pointer;
 }
 
-/* Header - Nav */
-.header {
+.mobile-nav-body {
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 3em;
 }
 
-.header__container {
+.mobile-nav-list {
+	margin: 0;
+	padding: 0;
+}
+
+.mobile-nav-list li {
+	margin: 1.5em 0;
+}
+
+.mobile-nav-list a {
+	font-size: 1.25rem;
+}
+
+/* Header */
+.header-container {
+	max-width: 75em;
+	width: 90%;
+	margin: 0 auto;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 1em 0;
 }
 
+.header-logo {
+	display: flex;
+}
+
+.header-logo a,
+.logo {
+	text-transform: uppercase;
+	font-size: 2.25rem;
+	font-family: var(--ff-accent);
+	font-weight: 400;
+}
+
+/* Navbar */
 .navbar {
 	display: none;
 }
 
-.navbar__list {
-	list-style: none;
-	display: flex;
-	gap: 2em;
+.navbar-list {
+	padding: 0;
+	margin: 0;
 }
 
-.navbar__list a {
-	font-size: 1.125rem;
-	font-weight: 500;
-	position: relative;
-	padding: 0 0.5rem;
-}
-
-.navbar__list a::after {
-	content: "";
-	position: absolute;
-	width: 0;
-	height: 4px;
-	margin: 0 auto;
-	left: 0;
-	right: 0;
-	bottom: -0.25rem;
-	border-radius: 150vw;
-	background-color: hsla(0, 0%, 29%, 1);
-	transition: all 0.3s;
-}
-
-.navbar__list a:hover::after {
-	width: 100%;
-}
-
-.navbar__action {
+.navbar-actions {
 	display: flex;
 	gap: 1em;
 }
 
-.navbar__action button {
-	border: none;
+.navbar-actions button {
+	cursor: pointer;
 	background: none;
+	border: none;
 	transition: all 0.3s;
 }
 
-.navbar__action button:hover,
-.navbar__action button:focus {
+.navbar-actions button:hover,
+.navbar-actions button:focus {
 	transform: scale(1.2) rotate(-10deg);
 }
 
-.navbar__action button img {
-	min-height: 1.5rem;
-}
-
 @media screen and (min-width: 45em) {
+	.mobile-nav,
+	.header-hamburger {
+		display: none;
+	}
+
 	.navbar {
 		display: flex;
 		align-items: center;
+		gap: 3em;
+	}
+
+	.navbar-list {
+		display: flex;
 		gap: 2em;
 	}
 
-	.header__hamburger {
-		display: none;
+	.navbar-list a {
+		font-size: 1.125rem;
+		font-weight: 500;
 	}
 }
 
-@media screen and (min-width: 55em) {
-	.header__logo {
-		flex: 2.5;
+@media screen and (min-width: 65em) {
+	.header-logo {
+		flex: 2.25;
 	}
 
 	.navbar {
-		flex: 6;
+		flex: 4;
 		justify-content: space-between;
-	}
-
-	.navbar__list {
-		gap: 3em;
-	}
-}
-
-/* Header - Hero */
-.hero {
-	padding: 2em 0;
-	display: grid;
-	grid-template-columns: repeat(6, 1fr);
-	grid-template-rows: repeat(2, minmax(150px, 1fr));
-	width: 90%;
-	margin-left: auto;
-}
-
-.hero img {
-	grid-row: 1/-1;
-	grid-column: 2/-1;
-	height: 100%;
-}
-
-.hero__content {
-	grid-row: 1/-1;
-	grid-column: 1/4;
-	align-self: center;
-
-	background-color: hsla(0, 0%, 100%, 0.78);
-	backdrop-filter: blur(30px);
-}
-
-.hero__content h1 {
-	font-size: 1.875rem;
-	font-family: var(--ff-accent);
-}
-
-.hero__content p {
-	font-size: 0.71875rem;
-}
-
-@media screen and (min-width: 55em) {
-	.hero__content h1 {
-		font-size: 4rem;
-	}
-
-	.hero__content p {
-		font-size: 1.5rem;
 	}
 }
