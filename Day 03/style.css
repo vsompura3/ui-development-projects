@@ -94,10 +94,16 @@ select {
 body {
 	font-family: var(--ff-body);
 	font-weight: 400;
-	font-size: var(--fs-300, 1rem);
+	font-size: 0.71875rem;
 	background-color: hsla(0, 0%, 100%, 1);
 	color: hsla(0, 0%, 29%, 1);
 	position: relative;
+}
+
+@media screen and (min-width: 40em) {
+	body {
+		font-size: 1.5rem;
+	}
 }
 
 a:link,
@@ -133,7 +139,7 @@ ul[role="list"] a:hover::after {
 
 /* Mobile-Nav */
 .mobile-nav {
-	position: absolute;
+	position: fixed;
 	inset: 0;
 	z-index: 99;
 	background: #000;
@@ -245,7 +251,7 @@ ul[role="list"] a:hover::after {
 
 	.navbar-list {
 		display: flex;
-		gap: 2em;
+		gap: 3em;
 	}
 
 	.navbar-list a {
@@ -262,5 +268,95 @@ ul[role="list"] a:hover::after {
 	.navbar {
 		flex: 4;
 		justify-content: space-between;
+	}
+}
+
+/* Hero */
+.hero {
+	padding: 2em 0;
+}
+
+.hero-container {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-template-rows: repeat(3, minmax(100px, 1fr));
+}
+
+.hero-image {
+	grid-column: 3/-1;
+	grid-row: 1/-1;
+}
+
+.hero-image img {
+	height: 100%;
+}
+
+.hero-image .desktop {
+	display: none;
+}
+
+.hero-content {
+	grid-row: 2/3;
+	grid-column: 1/5;
+	margin-left: 2em;
+
+	padding: 2em 1em 2em 0;
+	background-color: hsla(0, 0%, 100%, 0.78);
+	backdrop-filter: blur(8px) saturate(150%);
+	-webkit-backdrop-filter: blur(8px) saturate(150%);
+}
+
+.hero-content h1 {
+	font-family: var(--ff-accent);
+	font-size: 1.875rem;
+	font-weight: 400;
+	line-height: 1;
+}
+
+.hero-content p {
+	font-size: 0.71875rem;
+	margin-top: 1em;
+}
+
+@media screen and (max-width: 25em) {
+	.hero-container {
+		grid-template-rows: minmax(100px, 1fr) auto minmax(100px, 1fr);
+	}
+}
+
+@media screen and (min-width: 32em) {
+	.hero-image .desktop {
+		display: block;
+	}
+
+	.mobile {
+		display: none;
+	}
+
+	.hero-content {
+		grid-row: -2/-1;
+	}
+}
+
+@media screen and (min-width: 45em) {
+	.hero-container {
+		margin-left: 2em;
+	}
+
+	.hero-content {
+		grid-row: 2/-1;
+		grid-column: 1/4;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.hero-content h1 {
+		font-size: 4rem;
+	}
+
+	.hero-content p {
+		font-size: 1.5rem;
 	}
 }
